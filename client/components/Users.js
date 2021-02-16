@@ -41,14 +41,7 @@ const Users = (data) => {
   
 
 useEffect(() => {
- // setInitialCount((prevCount) => prevCount + 1);
 }, []);
-
-// const handleShowMorePosts = () => {
-//   debugger;
-//   setInitialCount((prevCount) => prevCount + 1);
-// };
-
 
 
 const seeMoreShowControl=()=> {
@@ -58,27 +51,10 @@ const seeMoreShowControl=()=> {
       let val= initialLoad.length+20;
       let data= initialCount.slice(0, val);
       setLoadedUsers(data);
-      // that.setState({
-      //   showMoreButton: "d-b"
-      // })
     } else {
-      // that.setState({
-      //   showMoreButton: "d-n"
-      // })
     }
   }, 100);
 }
-// seeMore() {
-//   that.setState({
-//     partNumber: that.state.partNumber + 10,
-//   });
-//   setTimeout(function () {
-//     that.setState({
-//       tableBody: that.state.searchDataSet.slice(0, that.state.partNumber)
-//     })
-//   }, 100);
-//   that.seeMoreShowControl();
-// }
   
   return (
     <React.Fragment>{!isLoading && loadedUsers && <UsersList items={loadedUsers} />}
