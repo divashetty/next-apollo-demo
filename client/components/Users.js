@@ -8,12 +8,9 @@ import request from "superagent";
 
 const Users = (data) => {
   const [isLoading,setIsLoading]=useState(false);
-  const [initialLoad,setInitialload]=useState();
   const [loadedUsers,setLoadedUsers]=useState();
-  const [initialCount,setInitialCount]=useState();
+  const [initialCount,setInitialCount]=useState(5);
   let tableBody=[];
-  let totalData=[];
-
   
    useEffect(()=>{
      const sendRequest = async () => {
@@ -22,13 +19,11 @@ const Users = (data) => {
       const response= await request.get(`https://randomuser.me/api/?results=100`);
       const responseData = await response.body.results;
       setInitialCount(responseData);
-      console.log(responseData);
       let partNumber= 5;
       if(!response.ok){
         throw new Error(responseData.message);
       }
       tableBody=responseData.slice(0, partNumber);
-      setInitialload(tableBody);
       setLoadedUsers(tableBody);
       setIsLoading(false);
     } catch (err){
@@ -45,10 +40,9 @@ useEffect(() => {
 
 
 const seeMoreShowControl=()=> {
-  debugger;
   setTimeout(function () {
-    if (initialCount.length > initialLoad.length) {
-      let val= initialLoad.length+20;
+    if (initialCount.length > loadedUsers.length) {
+      let val= loadedUsers.length+20;
       let data= initialCount.slice(0, val);
       setLoadedUsers(data);
     } else {
