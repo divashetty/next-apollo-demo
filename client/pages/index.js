@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import WithApollo from '../lib/with-apollo'
-import Name from '../components/Name'
+import USERS from '../components/Users'
 
 const Page = () => (
   <div>
-    Welcome, <Name />
+    Welcome, <USERS />
     <br/><br/>
     <Link href="/about"><a>About</a></Link>
 
