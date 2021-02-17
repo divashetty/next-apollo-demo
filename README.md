@@ -34,7 +34,7 @@ npm run dev
 
 To Visit App:
 
-localhost:3000/ideas
+localhost:3000
 
 Reflection
 This is first time i have worked on graphql and apolo as it was challenging to get data.So need to go through many refrence documents to create initial setup.But it was really good learning experience.
